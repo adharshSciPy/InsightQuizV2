@@ -45,7 +45,7 @@ function SignUp() {
     e.preventDefault(); // Prevent form submission from reloading the page
 
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/user/register', form);
+      const response = await axios.post('http://13.51.112.252:8000/api/v1/user/register', form);
       console.log(response);
       if (response) {
         // Navigate to login page after successful signup

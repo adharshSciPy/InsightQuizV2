@@ -61,7 +61,7 @@ function LandingPage() {
   const handleSignin = async (e) => {
     e.preventDefault(); // Prevent the form from submitting the traditional way
     try {
-      const response = await axios.post(`http://localhost:8000/api/v1/user/login`, form);
+      const response = await axios.post(`http://13.51.112.252:8000/api/v1/user/login`, form);
       console.log("hihi", response?.data?.token);
 
       // If login is successful, navigate to /studentdashboard

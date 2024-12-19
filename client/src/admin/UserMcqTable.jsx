@@ -19,7 +19,7 @@ function UserMcqTable() {
     const fetchSectionData = async () => {
         try {
             // Fetch user-specific MCQ details
-            const response = await axios.get(`http://localhost:8000/api/v1/user/getusermcqperfomance/${userId}/${sessionId}`);
+            const response = await axios.get(`http://13.51.112.252:8000/api/v1/user/getusermcqperfomance/${userId}/${sessionId}`);
             const questionDetails = response.data.data.sessionDetails.mcqAnswers;
             // console.log("question details response",response.data.data.sessionDetails)
             const performanceDetails=response.data.data;
@@ -35,7 +35,7 @@ function UserMcqTable() {
             // Fetch each question based on its questionId
             const questionPromises = questionDetails.map(async (item) => {
                 const questionResponse = await axios.get(
-                    `http://localhost:8000/api/v1/user/getsinglemcqquestion/${sectionDetails.sectionId}`,
+                    `http://13.51.112.252:8000/api/v1/user/getsinglemcqquestion/${sectionDetails.sectionId}`,
                     { params: { questionId: item.questionId } } // Pass questionId as a query parameter
                 );
 
@@ -57,7 +57,7 @@ function UserMcqTable() {
     };
     const fetchSectionName=async()=>{
         try {
-            const response=await axios.get(`http://localhost:8000/api/v1/section/getsectionsbyid/${sectionDetails.sectionId}`)
+            const response=await axios.get(`http://13.51.112.252:8000/api/v1/section/getsectionsbyid/${sectionDetails.sectionId}`)
             
             setSectionName(response.data.data.sectionName);
             console.log("response aaaaaaaaaaa",response.data)
