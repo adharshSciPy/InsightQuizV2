@@ -22,9 +22,9 @@ function AdminPage() {
   useEffect(() => {
 
     const details = async () => {
-      const response = await axios.get("http://13.51.112.252:8000/api/v1/section/getsections")
+      const response = await axios.get("http://13.50.6.227:8000/api/v1/section/getsections")
       setSection(response.data.data)
-      const userResponse = await axios.get("http://13.51.112.252:8000/api/v1/user/getUsers")
+      const userResponse = await axios.get("http://13.50.6.227:8000/api/v1/user/getUsers")
       setUser(userResponse.data.data)
       setIsLoading(false);
     }

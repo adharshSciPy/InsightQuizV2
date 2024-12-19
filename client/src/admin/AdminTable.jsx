@@ -13,7 +13,7 @@ function AdminTable() {
   const getQuestions = async () => {
     try {
       const response = await axios.get(
-        `http://13.51.112.252:8000/api/v1/section/getsectionsbyid/${sectionId}`
+        `http://13.50.6.227:8000/api/v1/section/getsectionsbyid/${sectionId}`
       );
       console.log("admintable", response.data.data.MCQ);
       setQuestions(response.data.data.MCQ);
@@ -32,7 +32,7 @@ function AdminTable() {
 
     try {
       const response = await axios.put(
-        `http://13.51.112.252:8000/api/v1/section/deletesectionmcq/${sectionId}`,
+        `http://13.50.6.227:8000/api/v1/section/deletesectionmcq/${sectionId}`,
         { id: id }
       );
       console.log(response);
