@@ -17,12 +17,13 @@ dotenv.config({
 })
 
 //it is for deploy build purpose
-const _dirname = path.dirname("")
+const _dirname = path.dirname(__filename)
 const buildpath = path.join(_dirname, "../client/build")
+app.use(express.static(buildpath));
 app.get("/*", function (req, res) {
-    app.use(express.static(buildpath));
+    // app.use(express.static(buildpath));
     res.sendFile(
-        path.join(_dirname, "../client/build/index.html"),
+        path.join(buildpath, "../client/build/index.html"),
         function (err) {
             if (err) {
                 res.status(500).send(err);
