@@ -39,7 +39,7 @@ const ShortAnswerQuestion = () => {
     try {
       const payload = { questionCategory, question, answer, mark, sectionId };
       
-      const response = await axios.put(`http://13.50.6.227:8000/api/v1/section/createquestions/${sectionId}`, payload);
+      const response = await axios.put(`http://13.203.138.3:8000/api/v1/section/createquestions/${sectionId}`, payload);
 
       if (response.status === 200) {
         notifySuccess();

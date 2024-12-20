@@ -13,7 +13,7 @@ function UserwiseDetails() {
   const fetchUserData = async () => {
     try {
       const response = await axios.get(
-        `http://13.50.6.227:8000/api/v1/user/getuserById/${userId}`
+        `http://13.203.138.3:8000/api/v1/user/getuserById/${userId}`
       );
       const userData = response.data.data;
   
@@ -25,7 +25,7 @@ function UserwiseDetails() {
       const sectionPromises = uniqueSectionIds.map(async (sectionId) => {
         try {
           const res = await axios.get(
-            `http://13.50.6.227:8000/api/v1/section/getsectionsbyid/${sectionId}`
+            `http://13.203.138.3:8000/api/v1/section/getsectionsbyid/${sectionId}`
           );
           if (res.data && res.data.data) {
             return {

@@ -14,7 +14,7 @@ function DescriptiveQuestions () {
 
     const getQuestions = async () => {
         try {
-            const response = await axios.get(`http://13.50.6.227:8000/api/v1/section/getsectionsbyid/${sectionId}`)
+            const response = await axios.get(`http://13.203.138.3:8000/api/v1/section/getsectionsbyid/${sectionId}`)
             console.log("admintable", response.data.data.Questions);
             setQuestions(response.data.data.Questions);
         } catch (error) {
@@ -31,7 +31,7 @@ function DescriptiveQuestions () {
         console.log("sectionId:",sectionId);
       
         try {
-          const response=await axios.put(`http://13.50.6.227:8000/api/v1/section/deletesectiondescriptive/${sectionId}`,{id:id});
+          const response=await axios.put(`http://13.203.138.3:8000/api/v1/section/deletesectiondescriptive/${sectionId}`,{id:id});
           console.log(response);
           getQuestions();
           

@@ -36,7 +36,7 @@ const Quiz = ({ sectionId }) => { // Receive sectionId as a prop
   const fetchQuestions = async () => {
     if (!sectionId) return;
     try {
-      const response = await axios.get(`http://13.50.6.227:8000/api/v1/section/getsectionsbyid/${sectionId}`);
+      const response = await axios.get(`http://13.203.138.3:8000/api/v1/section/getsectionsbyid/${sectionId}`);
       // console.log("response from axios ",response)
       const shuffledQuestions = response.data.data.MCQ.sort(() => Math.random() - 0.5);
       setQuestions(shuffledQuestions);
@@ -116,7 +116,7 @@ const Quiz = ({ sectionId }) => { // Receive sectionId as a prop
         selectedOption: answer.selectedOption || 'skipped',
       }));
 
-      const response = await axios.patch(`http://13.50.6.227:8000/api/v1/user/quizsubmitmcq/${loggedInUserId}/${sectionId}`, {
+      const response = await axios.patch(`http://13.203.138.3:8000/api/v1/user/quizsubmitmcq/${loggedInUserId}/${sectionId}`, {
         answers: processedAnswers,
         disqualified: isDisqualified,
       });

@@ -20,13 +20,13 @@ function DescriptivePaperChecking() {
   const fetchDescriptiveData = async () => {
     try {
       const questionResponse = await axios.get(
-        `http://13.50.6.227:8000/api/v1/user/getsingledescriptivequestion/${sectionDetails.sectionId}`,
+        `http://13.203.138.3:8000/api/v1/user/getsingledescriptivequestion/${sectionDetails.sectionId}`,
         { params: { questionId } }
       );
       setQuestion(questionResponse.data.data);
 
       const answerResponse = await axios.get(
-        `http://13.50.6.227:8000/api/v1/user/getsingledescriptiveanswers`,
+        `http://13.203.138.3:8000/api/v1/user/getsingledescriptiveanswers`,
         { params: { answerId } }
       );
       setAnswers(answerResponse.data.data);
@@ -45,7 +45,7 @@ function DescriptivePaperChecking() {
 
     try {
       await axios.patch(
-        `http://13.50.6.227:8000/api/v1/admin/descriptiveMark/${userId}`,
+        `http://13.203.138.3:8000/api/v1/admin/descriptiveMark/${userId}`,
         {
           sectionId: sectionDetails.sectionId,
           questionId,
