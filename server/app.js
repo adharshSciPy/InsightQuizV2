@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import dotenv from 'dotenv'
+import path from 'path';
 
 import adminRouter from './routes/adminRouter.js'
 import userRouter from './routes/userRouter.js';
@@ -15,6 +16,20 @@ dotenv.config({
     path: './env'
 })
 
+//it is for deploy build purpose
+const _dirname = path.dirname("")
+const buildpath = path.join(_dirname, "../client/build")
+app.get("/*", function (req, res) {
+    app.use(express.static(buildpath));
+    res.sendFile(
+        path.join(_dirname, "../client/build/index.html"),
+        function (err) {
+            if (err) {
+                res.status(500).send(err);
+            }
+        }
+    )
+})
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true, limit: "16kb" }))
