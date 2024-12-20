@@ -46,7 +46,7 @@ function Session() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://13.203.138.3:8000/api/v1/section/deletesection/${sessionToDelete}`);
+      await axios.delete(`http://3.6.173.209:8000/api/v1/section/deletesection/${sessionToDelete}`);
       setSessions(sessions.filter(session => session._id !== sessionToDelete));
       closeDeleteModal();
     } catch (error) {
@@ -60,18 +60,18 @@ function Session() {
       const session = sessions[sessionIndex];
   
       // Step 1: Update on the server with `startquiz`
-      await axios.patch("http://13.203.138.3:8000/api/v1/section/startquiz", {
+      await axios.patch("http://3.6.173.209:8000/api/v1/section/startquiz", {
         sectionId: sessionToStart,
         questionType: session?.questionType,
       });
   
       // Step 2: Update on the server with `togglestatus`
-      await axios.patch("http://13.203.138.3:8000/api/v1/section/togglestatus", {
+      await axios.patch("http://3.6.173.209:8000/api/v1/section/togglestatus", {
         sectionId: sessionToStart,
       });
   
       // Step 3: Call `checkactivebadge` and log the response
-      const { data } = await axios.get("http://13.203.138.3:8000/api/v1/section/checkactivebadge", {
+      const { data } = await axios.get("http://3.6.173.209:8000/api/v1/section/checkactivebadge", {
         params: { sectionId: sessionToStart },
       });
   
@@ -98,7 +98,7 @@ function Session() {
   const handleEndSession = async (sessionId) => {
     try {
       // Step 1: Call the `togglereverse` API
-      const { data } = await axios.patch("http://13.203.138.3:8000/api/v1/section/togglereverse", {
+      const { data } = await axios.patch("http://3.6.173.209:8000/api/v1/section/togglereverse", {
         sectionId: sessionId,
       });
   
@@ -119,7 +119,7 @@ function Session() {
   
   const getSessions = async () => {
     try {
-      const res = await axios.get("http://13.203.138.3:8000/api/v1/section/getsections");
+      const res = await axios.get("http://3.6.173.209:8000/api/v1/section/getsections");
       // Ensure the backend includes `isActive` and `isActiveBadge` in the response
       setSessions(Array.isArray(res.data.data) ? res.data.data : []);
     } catch (error) {

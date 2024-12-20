@@ -11,7 +11,7 @@ function AddSession({ onClose, refreshSessions }) {
 
   const handleConfirm = async () => {
     try {
-      await axios.post("http://13.203.138.3:8000/api/v1/section/createsection", {
+      await axios.post("http://3.6.173.209:8000/api/v1/section/createsection", {
         sectionName: sessionName,
         date: sessionDate,
         questionType: questionType

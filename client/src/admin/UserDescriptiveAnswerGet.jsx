@@ -20,7 +20,7 @@ function UserDescriptiveAnswerGet() {
   const fetchDescriptiveData = async () => {
     try {
       const response = await axios.get(
-        `http://13.203.138.3:8000/api/v1/admin/getdescriptiveAnswerfromUser`,
+        `http://3.6.173.209:8000/api/v1/admin/getdescriptiveAnswerfromUser`,
         { params: { userId, sessionId } }
       );
       setData(response.data.descriptiveAnswers || []); // Update data state
