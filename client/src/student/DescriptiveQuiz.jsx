@@ -25,7 +25,7 @@ const DescriptiveQuiz = ({sectionId}) => {
   const fetchQuestions = async () => {
     if (!sectionId) return;
     try {
-      const response = await axios.get(`http://3.6.173.209:8000/api/v1/section/getsectionsbyid/${sectionId}`);
+      const response = await axios.get(`http://localhost:8000/api/v1/section/getsectionsbyid/${sectionId}`);
       console.log("response from axios ",response)
       const shuffledQuestions = response.data.data.Questions.sort(() => Math.random() - 0.5);
       setQuestions(shuffledQuestions);
@@ -103,7 +103,7 @@ const DescriptiveQuiz = ({sectionId}) => {
         }));
 
         // Send the answers and disqualification status to the backend
-        const response = await axios.post(`http://3.6.173.209:8000/api/v1/user/descriptivequizsubmit/${loggedInUserId}/${sectionId}`, {
+        const response = await axios.post(`http://localhost:8000/api/v1/user/descriptivequizsubmit/${loggedInUserId}/${sectionId}`, {
             answers: processedAnswers,
             disqualified: isDisqualified,
         });

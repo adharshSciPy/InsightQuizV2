@@ -48,7 +48,7 @@ const Question = () => {
     };
 
     try {
-      const response = await axios.put(`http://3.6.173.209:8000/api/v1/section/mcqsections/${sectionId}`, payload);
+      const response = await axios.put(`http://localhost:8000/api/v1/section/mcqsections/${sectionId}`, payload);
       if (response.status === 200) {
         notifySuccess();
         setForm({

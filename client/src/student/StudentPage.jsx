@@ -19,7 +19,7 @@ function StudentPage() {
   const handleStartQuiz = async () => {
     try {
       // Get section data (for the example, assume the first section from the API response)
-      const response = await axios.get(`http://3.6.173.209:8000/api/v1/section/getquizsection`);
+      const response = await axios.get(`http://localhost:8000/api/v1/section/getquizsection`);
       const sectionData = response.data.data[0];
       const { sectionId, questionType } = sectionData;
 
@@ -28,7 +28,7 @@ function StudentPage() {
 
       // Check if the user is allowed to take this quiz section
       const checkResponse = await axios.get(
-        `http://3.6.173.209:8000/api/v1/user/checkuserquizsubmit/${loggedInUserId}/${sectionId}`
+        `http://localhost:8000/api/v1/user/checkuserquizsubmit/${loggedInUserId}/${sectionId}`
       );
 
       const { attempted, disqualified, message } = checkResponse.data;

@@ -17,7 +17,7 @@ function UserDescriptiveTable() {
     const fetchSectionData = async () => {
         try {
             // Fetch user-specific descriptive details
-            const response = await axios.get(`http://3.6.173.209:8000/api/v1/user/getuserdescriptiveperfomance/${userId}/${sessionId}`);
+            const response = await axios.get(`http://localhost:8000/api/v1/user/getuserdescriptiveperfomance/${userId}/${sessionId}`);
             const questionDetails = response.data.data.sessionDetails.descriptiveAnswers;
             // console.log("question details",questionDetails)
             const score=response.data.data.score;
@@ -31,7 +31,7 @@ function UserDescriptiveTable() {
             // Fetch each question based on its questionId
             const questionPromises = questionDetails.map(async (item) => {
                 const questionResponse = await axios.get(
-                    `http://3.6.173.209:8000/api/v1/user/getsingledescriptivequestion/${sectionDetails.sectionId}`,
+                    `http://localhost:8000/api/v1/user/getsingledescriptivequestion/${sectionDetails.sectionId}`,
                     { params: { questionId: item.questionId } } // Pass questionId as a query parameter
                 );
                 
@@ -55,7 +55,7 @@ function UserDescriptiveTable() {
     };
     const fetchSectionName=async()=>{
         try {
-            const response=await axios.get(`http://3.6.173.209:8000/api/v1/section/getsectionsbyid/${sectionDetails.sectionId}`)
+            const response=await axios.get(`http://localhost:8000/api/v1/section/getsectionsbyid/${sectionDetails.sectionId}`)
             
             setSectionName(response.data.data.sectionName);
             console.log("response for section name",response.data.data.sectionName)
